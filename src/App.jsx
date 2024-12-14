@@ -24,19 +24,16 @@ const App = () => {
   const [ingredients, setIngredients] = useState(availableIngredients)
   const [stack, setStack] = useState([])
 
-  const addToBurger = (ingredient) => {
-    setStack((prevStack) => [...prevStack, ingredient])
-  }
+  // const addIngredient = (selectIngredient) => {
+  //   setStack([selectIngredient, ...stack])
+  // }
+
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <ul>
-          <li>
-            <IngredientList ingredients={ingredients} />
-          </li>
-          <li>{/* <BurgerStack stack={stack} /> */}</li>
-        </ul>
+        <IngredientList ingredients={ingredients} />
+        {/* <BurgerStack stack={stack} /> */}
       </section>
     </main>
   )
