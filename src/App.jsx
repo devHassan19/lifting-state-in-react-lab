@@ -24,16 +24,25 @@ const App = () => {
   const [ingredients, setIngredients] = useState(availableIngredients)
   const [stack, setStack] = useState([])
 
-  // const addIngredient = (selectIngredient) => {
-  //   setStack([selectIngredient, ...stack])
-  // }
+  const handleAddIngredients = (e) => {
+    const index = parseInt(e.target.id)
+    const theIngredients = ingredients[index]
+    setStack([theIngredients, ...stack])
+  }
 
+  const handleRemoveIngredient = (e) => {
+    const index = parseInt(e.target.id)
+    setStack(stack.filter((_, i) => i !== index))
+  }
   return (
     <main>
       <h1>Burger Stacker</h1>
-      <section>
-        <IngredientList ingredients={ingredients} />
-        {/* <BurgerStack stack={stack} /> */}
+      <section className="section">
+        <IngredientList
+          ingredients={ingredients}
+          onAdd={handleAddIngredients}
+        />
+        <BurgerStack stack={stack} onRemove={handleRemoveIngredient} />
       </section>
     </main>
   )

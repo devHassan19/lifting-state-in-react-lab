@@ -1,14 +1,17 @@
-const IngredientList = ({ ingredients }) => {
+const IngredientList = ({ ingredients, onAdd }) => {
   return (
     <>
       <ul>
-        {ingredients.map((ingredient) => (
+        {ingredients.map((ingredient, index) => (
           <li
+            className="li"
             key={ingredient.name}
             style={{ backgroundColor: ingredient.color }}
           >
             {ingredient.name}
-            <button>+</button>
+            <button className="button" id={index} onClick={onAdd}>
+              +
+            </button>
           </li>
         ))}
       </ul>
